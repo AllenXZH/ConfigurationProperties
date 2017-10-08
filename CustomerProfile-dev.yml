@@ -6,5 +6,16 @@ spring:
       database: loan-system
 
 ---
-
+eureka:
+  instance:
+    statusPageUrl: https://${eureka.hostname}/info
+    healthCheckUrl: https://${eureka.hostname}/health
+    homePageUrl: https://${eureka.hostname}/
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+---
 HystrixErrorThresholdPercentage: 20
